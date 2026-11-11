@@ -11,6 +11,16 @@ sube a `main` queda publicado en un par de minutos, a la vista de cualquiera que
 | `robots.txt` y la meta `robots` de cada página | piden a los buscadores no indexar el sitio; no se sacan |
 | `.nojekyll` | GitHub Pages sirve los archivos tal cual |
 
+## Sin ramas: todo va a `main`, commiteado y subido
+- Se trabaja directo en `main`. Al empezar, siempre `git pull`.
+- Cada cambio terminado se commitea y se sube (`git push`) en el momento. Al cerrar la sesión no
+  queda nada sin commit ni sin subir: `git status` limpio y `git log origin/main..` vacío.
+- Si el push falla porque alguien subió antes: `git pull --rebase` y volver a subir. Nunca `push --force`.
+- Si hay conflicto en `index.html` (es casi una sola línea gigante), no se resuelve a mano: se toma
+  la versión de `main` y se vuelve a aplicar el cambio con el mismo script.
+- Si la sesión solo deja subir a una rama (por ejemplo, `claude/…`), se abre el pull request, se
+  fusiona a `main` en el momento y se borra la rama. No quedan ramas abiertas.
+
 ## Antes de cada commit
 1. **Nada que identifique a nadie.** En textos y capturas no van RUN ni RUT (tampoco de pacientes de
    prueba), nombres de personas del equipo de la clínica, correos ni usuarios de TrakCare. Toda
