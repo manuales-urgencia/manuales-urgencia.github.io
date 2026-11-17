@@ -7,7 +7,7 @@ sube a `main` queda publicado en un par de minutos, a la vista de cualquiera que
 | Archivo | Qué es |
 |---|---|
 | `index.html` | Manual TrakCare de Urgencias con todos los perfiles, en un solo archivo (~16 MB) |
-| `recorrido-medico.html` | Recorrido guiado del médico de urgencia (~12 MB) |
+| `recorrido.html` | Recorridos guiados de todos los perfiles en un solo archivo (~33 MB): la portada pide elegir el perfil. Lo arma `unir_recorridos.py` (fuera de este repo) desde los recorridos de cada perfil; `#medico`, `#go` o `#fono` abren uno directo |
 | `robots.txt` y la meta `robots` de cada página | piden a los buscadores no indexar el sitio; no se sacan |
 | `.nojekyll` | GitHub Pages sirve los archivos tal cual |
 
