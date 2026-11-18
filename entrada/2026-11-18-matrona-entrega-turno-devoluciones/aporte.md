@@ -4,7 +4,7 @@ perfil: matrona
 fecha: 2026-11-18
 aporta: Enfermería
 ubicacion: «Devoluciones» después del tema «Otros»; «Entrega de Turno» antes del tema «Movimiento de pacientes en el Mapa de Piso»
-probado_en_uat: sin fecha; el contenido es el del Word de Enfermería del 18 nov 2026
+probado_en_uat: 2026-11-18
 ---
 
 Se pide agregar a Matrona dos temas que hoy solo tiene Enfermería, con el mismo contenido del Word de

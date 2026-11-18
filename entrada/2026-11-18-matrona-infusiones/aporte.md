@@ -4,7 +4,7 @@ perfil: matrona
 fecha: 2026-11-18
 aporta: Enfermería
 ubicacion: Matrona › Tratamiento › Ejecución de medicamentos › Administración de Infusiones
-probado_en_uat: sin fecha; el contenido es el del Word de Enfermería del 18 nov 2026
+probado_en_uat: 2026-11-18
 ---
 
 Se pide que Matrona use el mismo apartado **Administración de Infusiones** que Enfermería (Word de
