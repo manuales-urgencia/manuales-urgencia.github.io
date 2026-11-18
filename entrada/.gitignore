@@ -1,0 +1,11 @@
+# Los originales traen capturas sin tapar: nunca se suben al buzón (repo público)
+*.docx
+*.doc
+*.pdf
+*.xlsx
+*.xls
+*.pptx
+*.ppt
+*.zip
+*-original.*
+*-sin-tapar.*
