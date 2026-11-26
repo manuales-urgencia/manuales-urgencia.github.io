@@ -14,8 +14,10 @@ Desde el 17 nov 2026 los cambios al manual entran solo por el buzón: así queda
 ## Qué hay
 | Archivo | Qué es |
 |---|---|
-| `index.html` | Manual TrakCare de Urgencias con todos los perfiles, en un solo archivo (~31 MB) |
-| `recorrido.html` | Recorridos guiados de todos los perfiles en un solo archivo (~47 MB): la portada pide elegir el perfil. Lo arma `unir_recorridos.py` (repo privado). `#medico`, `#go`, `#ic`, `#matrona`, `#tens`, `#kine`, `#fono`, `#mov`, `#qf` o `#auxf` abren uno directo |
+| `index.html` | Manual TrakCare de Urgencias con todos los perfiles: el texto y el código (~1 MB). Las capturas van aparte, en `img/` |
+| `recorrido.html` | Portada de los recorridos guiados: pide elegir el perfil y carga `rec/<perfil>.html`. `#medico`, `#go`, `#ic`, `#enfermeria`, `#matrona`, `#tens`, `#kine`, `#fono`, `#mov`, `#qf` o `#auxf` abren uno directo |
+| `rec/` | Un recorrido por perfil (lo pide `recorrido.html` al elegirlo) |
+| `img/` | Las capturas del manual y de los recorridos, una por archivo (el nombre es el sha1 de su contenido). Las escribe y las borra `aligerar.py`; no se editan a mano |
 | `entrada/` | El buzón de aportes: `LEEME.md` (reglas y formato), `plantilla/` y una carpeta por aporte pendiente |
 | `robots.txt` y la meta `robots` de cada página | piden a los buscadores no indexar el sitio; no se sacan |
 | `.nojekyll` | GitHub Pages sirve los archivos tal cual |
@@ -37,12 +39,14 @@ Desde el 17 nov 2026 los cambios al manual entran solo por el buzón: así queda
    `git -c user.name="Manuales de urgencia" -c user.email="noreply@manuales-urgencia.github.io" commit -m "…"`
 3. **Un mensaje que diga qué cambió**, una línea por cambio (perfil, tema y qué).
 
-## Solo para el agente de Álvaro: cómo editar `index.html` sin romperlo
-- No leerlo entero: pesa ~31 MB, casi todo imágenes en base64. Buscar con `grep -o` y editar con un
-  script corto o, mejor, con `publicar/empalmar_perfil.py` del repo privado.
+## Solo para el agente de Álvaro: cómo editar el manual sin romperlo
+- Desde el 26 nov 2026 lo publicado es la **versión liviana** (capturas en `img/`, recorridos en `rec/`), para que la página abra rápido.
+  No se edita aquí: se trabaja sobre los **maestros** (cada página en un solo archivo, con las capturas adentro; son los que van a
+  SharePoint) y se publica con `publicar/aligerar.py <carpeta-maestra> <sitio>` del repo privado.
+- Si no hay carpeta maestra a mano: `publicar/aligerar.py --completo <sitio> <carpeta-maestra>` la rearma desde este repo.
+- El maestro del manual pesa ~36 MB, casi todo imágenes en base64: no leerlo entero. Buscar con `grep -o` y editar con un script corto o
+  con las herramientas de `publicar/` (`empalmar_perfil.py`, `word_a_sitio.py`, `sitio_extras.py`).
 - Por dentro tiene cinco partes, en este orden: un `<script>` corto (tema claro u oscuro); `<style>`;
   `<script type="application/json" id="cfg">` (perfiles y textos generales); `<script type="application/json" id="data">`
-  (temas de cada perfil, capturas en WebP base64); el último `<script>`, el código de la página.
+  (temas de cada perfil); el último `<script>`, el código de la página.
 - Al editar un JSON, comprobar que siga válido (`json.loads`) antes de guardar.
-- Si hay conflicto en `index.html` (casi una sola línea gigante), no se resuelve a mano: se toma la
-  versión de `main` y se vuelve a aplicar el cambio con el mismo script.
